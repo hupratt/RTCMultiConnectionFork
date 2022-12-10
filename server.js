@@ -267,42 +267,42 @@ if (isUseHTTPs) {
   // See how to use a valid certificate:
   // https://github.com/muaz-khan/WebRTC-Experiment/issues/62
   var options = {
-    key: null,
-    cert: null,
-    ca: null,
+    key: config.sslKey,
+    cert: config.sslKey,
+    ca: config.sslCabundle,
   };
 
-  var pfx = false;
+  var pfx = true;
 
-  if (!fs.existsSync(config.sslKey)) {
-    console.log(
-      BASH_COLORS_HELPER.getRedFG(),
-      "sslKey:\t " + config.sslKey + " does not exist."
-    );
-  } else {
-    pfx = config.sslKey.indexOf(".pfx") !== -1;
-    options.key = fs.readFileSync(config.sslKey);
-  }
+  //   if (!fs.existsSync(config.sslKey)) {
+  //     console.log(
+  //       BASH_COLORS_HELPER.getRedFG(),
+  //       "sslKey:\t " + config.sslKey + " does not exist."
+  //     );
+  //   } else {
+  //     pfx = config.sslKey.indexOf(".pfx") !== -1;
+  //     options.key = fs.readFileSync(config.sslKey);
+  //   }
 
-  if (!fs.existsSync(config.sslCert)) {
-    console.log(
-      BASH_COLORS_HELPER.getRedFG(),
-      "sslCert:\t " + config.sslCert + " does not exist."
-    );
-  } else {
-    options.cert = fs.readFileSync(config.sslCert);
-  }
+  //   if (!fs.existsSync(config.sslCert)) {
+  //     console.log(
+  //       BASH_COLORS_HELPER.getRedFG(),
+  //       "sslCert:\t " + config.sslCert + " does not exist."
+  //     );
+  //   } else {
+  //     options.cert = fs.readFileSync(config.sslCert);
+  //   }
 
-  if (config.sslCabundle) {
-    if (!fs.existsSync(config.sslCabundle)) {
-      console.log(
-        BASH_COLORS_HELPER.getRedFG(),
-        "sslCabundle:\t " + config.sslCabundle + " does not exist."
-      );
-    }
+  //   if (config.sslCabundle) {
+  //     if (!fs.existsSync(config.sslCabundle)) {
+  //       console.log(
+  //         BASH_COLORS_HELPER.getRedFG(),
+  //         "sslCabundle:\t " + config.sslCabundle + " does not exist."
+  //       );
+  //     }
 
-    options.ca = fs.readFileSync(config.sslCabundle);
-  }
+  //     options.ca = fs.readFileSync(config.sslCabundle);
+  //   }
 
   if (pfx === true) {
     options = {
