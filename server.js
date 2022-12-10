@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-ssl = http = require(process.env.http).createServer(options, app);
+http = require(process.env.http).createServer(options, app);
 http.listen(port, () => {
   console.log(`Socket.IO server running at http://localhost:${port}/`);
 });
