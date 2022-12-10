@@ -316,7 +316,7 @@ if (isUseHTTPs) {
 }
 
 RTCMultiConnectionServer.beforeHttpListen(httpApp, config);
-httpApp = httpApp.listen("9001", "rtc.craftstudios.shop", function () {
+httpApp = httpApp.listen(3000, "0.0.0.0", function () {
   RTCMultiConnectionServer.afterHttpListen(httpApp, config);
 });
 
