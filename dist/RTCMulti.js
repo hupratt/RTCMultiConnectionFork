@@ -2111,7 +2111,8 @@ var RTCMultiConnection = function (roomid, forceOptions) {
       var navigator = window.navigator;
       "undefined" != typeof navigator
         ? ("undefined" != typeof navigator.webkitGetUserMedia &&
-            (navigator.mediaDevices.getUserMedia = navigator.webkitGetUserMedia),
+            (navigator.mediaDevices.getUserMedia =
+              navigator.webkitGetUserMedia),
           "undefined" != typeof navigator.mozGetUserMedia &&
             (navigator.mediaDevices.getUserMedia = navigator.mozGetUserMedia))
         : (navigator = {
@@ -2316,7 +2317,7 @@ var RTCMultiConnection = function (roomid, forceOptions) {
         (DetectRTC.isSctpDataChannelsSupported = isSCTPSupportd),
         (DetectRTC.isMobileDevice = isMobileDevice);
       var isGetUserMediaSupported = !1;
-      navigator.mediaDevices.getUserMedia
+      navigator.getUserMedia
         ? (isGetUserMediaSupported = !0)
         : navigator.mediaDevices &&
           navigator.mediaDevices.getUserMedia &&
