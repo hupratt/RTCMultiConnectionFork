@@ -304,11 +304,11 @@ if (isUseHTTPs) {
   //     options.ca = fs.readFileSync(config.sslCabundle);
   //   }
 
-  if (pfx === true) {
-    options = {
-      pfx: config.sslKey,
-    };
-  }
+  //   if (pfx === true) {
+  //     options = {
+  //       pfx: config.sslKey,
+  //     };
+  //   }
 
   httpApp = httpServer.createServer(options, serverHandler);
 } else {
