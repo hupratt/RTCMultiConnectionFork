@@ -316,13 +316,9 @@ if (isUseHTTPs) {
 }
 
 RTCMultiConnectionServer.beforeHttpListen(httpApp, config);
-httpApp = httpApp.listen(
-  process.env.PORT || PORT,
-  process.env.IP || "0.0.0.0",
-  function () {
-    RTCMultiConnectionServer.afterHttpListen(httpApp, config);
-  }
-);
+httpApp = httpApp.listen(process.env.PORT, process.env.IP, function () {
+  RTCMultiConnectionServer.afterHttpListen(httpApp, config);
+});
 
 // --------------------------
 // socket.io codes goes below
