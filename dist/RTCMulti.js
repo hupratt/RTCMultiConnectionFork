@@ -1432,11 +1432,11 @@ var RTCMultiConnection = function (roomid, forceOptions) {
         "function" != typeof navigator.mediaDevices.getUserMedia
       )
         return (
-          (navigator.mediaDevices.getUserMedia =
-            navigator.mediaDevices.getUserMedia ||
+          (navigator.getUserMedia =
+            navigator.getUserMedia ||
             navigator.webkitGetUserMedia ||
             navigator.mozGetUserMedia),
-          void navigator.mediaDevices.getUserMedia(
+          void navigator.getUserMedia(
             options.localMediaConstraints,
             function (stream) {
               (stream.streamid =
@@ -1450,8 +1450,8 @@ var RTCMultiConnection = function (roomid, forceOptions) {
           )
         );
       if ("undefined" == typeof navigator.mediaDevices) {
-        navigator.mediaDevices.getUserMedia =
-          navigator.mediaDevices.getUserMedia ||
+        navigator.getUserMedia =
+          navigator.getUserMedia ||
           navigator.webkitGetUserMedia ||
           navigator.mozGetUserMedia;
         var getUserMediaStream,
