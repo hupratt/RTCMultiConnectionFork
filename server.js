@@ -316,7 +316,7 @@ if (isUseHTTPs) {
 }
 
 RTCMultiConnectionServer.beforeHttpListen(httpApp, config);
-httpApp = httpApp.listen(3000, "0.0.0.0", function () {
+httpApp = httpApp.listen(process.env.PORT, process.env.IP, function () {
   RTCMultiConnectionServer.afterHttpListen(httpApp, config);
 });
 
