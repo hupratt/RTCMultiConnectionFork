@@ -6,7 +6,6 @@ var webpack = require("webpack");
 // One for the client and one for your server side api's.
 
 module.exports = {
-  watch: true,
   target: "web",
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   devtool: "inline-source-map",
