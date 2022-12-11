@@ -27,6 +27,13 @@ window.addEventListener("load", function () {
     );
   };
 
+  document.getElementById("add-screen").onclick = function () {
+    disableInputButtons();
+    connection.open(document.getElementById("room-id").value, () => {
+      createRTCMultiConnection();
+    });
+  };
+
   document.getElementById("join-room").onclick = function () {
     console.log("join-room button clicked");
     disableInputButtons();
@@ -76,7 +83,9 @@ window.addEventListener("load", function () {
   // ......................................................
   // ..................RTCMultiConnection Code.............
   // ......................................................
-
+  const createRTCMultiConnection = () => {
+    var connection = new RTCMultiConnection();
+  };
   var connection = new RTCMultiConnection();
 
   // by default, socket.io server is assumed to be deployed on your own URL
@@ -85,7 +94,7 @@ window.addEventListener("load", function () {
   // comment-out below line if you do not have your own socket.io server
   // connection.socketURL = 'https://muazkhan.com:9001/';
 
-  connection.socketMessageEvent = "screen-sharing-demo";
+  connection.socketMessageEvent = "video-screen-demo";
 
   connection.session = {
     screen: true,
@@ -318,13 +327,8 @@ window.addEventListener("load", function () {
     }
   };
 
-  // ..................................
-  // ALL below scripts are redundant!!!
-  // ..................................
-
   function disableInputButtons(enable) {
     document.getElementById("room-id").onkeyup();
-
     document.getElementById("open-or-join-room").disabled = !enable;
     document.getElementById("open-room").disabled = !enable;
     document.getElementById("join-room").disabled = !enable;

@@ -14,7 +14,7 @@ module.exports = {
       directory: path.join(__dirname, "public"),
     },
     compress: true,
-    port: 8090,
+    port: 3000,
   },
   entry: {
     main: "./server.js",
