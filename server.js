@@ -9,14 +9,11 @@ const RTCMultiConnectionServer = require("rtcmulticonnection-server");
 app.use(express.static("public"));
 app.use("node_modules", express.static("node_modules"));
 
-const BASH_COLORS_HELPER = RTCMultiConnectionServer.BASH_COLORS_HELPER;
 const getValuesFromConfigJson =
   RTCMultiConnectionServer.getValuesFromConfigJson;
-const getBashParameters = RTCMultiConnectionServer.getBashParameters;
-const resolveURL = RTCMultiConnectionServer.resolveURL;
 
 const jsonPath = {
-  config: "config.json",
+  config: ".env",
   logs: "logs.json",
 };
 
@@ -26,7 +23,6 @@ var options = {
 };
 
 var config = getValuesFromConfigJson(jsonPath);
-config = getBashParameters(config, BASH_COLORS_HELPER);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/live/index.html");
