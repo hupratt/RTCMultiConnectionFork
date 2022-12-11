@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "my first socket.io app",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js",
+    "dev": "webpack --mode development --config webpack.config.js",
     "build": "webpack --mode production --config webpack.config.production.js",
-    "start": "node server.js"
+    "start": "webpack-dev-server --config webpack.config.js"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

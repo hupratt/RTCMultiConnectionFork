@@ -3,12 +3,16 @@ window.addEventListener("load", function () {
   // .......................UI Code........................
   // ......................................................
   document.getElementById("open-room").onclick = function () {
+    console.log("open-room button clicked");
     disableInputButtons();
+    console.log(document.getElementById("room-id").value + " room-id clicked");
     connection.open(
       document.getElementById("room-id").value,
       function (isRoomOpened, roomid, error) {
+        console.log("isRoomOpened " + isRoomOpened);
         if (isRoomOpened === true) {
           showRoomURL(connection.sessionid);
+          console.log("showRoomURL");
         } else {
           disableInputButtons(true);
           if (error === "Room not available") {
@@ -24,7 +28,9 @@ window.addEventListener("load", function () {
   };
 
   document.getElementById("join-room").onclick = function () {
+    console.log("join-room button clicked");
     disableInputButtons();
+    console.log(document.getElementById("room-id").value + " room-id clicked");
     connection.join(
       document.getElementById("room-id").value,
       function (isJoinedRoom, roomid, error) {
@@ -43,7 +49,10 @@ window.addEventListener("load", function () {
   };
 
   document.getElementById("open-or-join-room").onclick = function () {
+    console.log("open-or-join-room button clicked");
     disableInputButtons();
+    console.log(document.getElementById("open-or-join-room"));
+    console.log(document.getElementById("room-id").value);
     connection.openOrJoin(
       document.getElementById("room-id").value,
       function (isRoomExist, roomid, error) {
@@ -72,7 +81,7 @@ window.addEventListener("load", function () {
 
   // by default, socket.io server is assumed to be deployed on your own URL
   connection.socketURL = "/";
-
+  console.log("RTCMultiConnection " + connection.token());
   // comment-out below line if you do not have your own socket.io server
   // connection.socketURL = 'https://muazkhan.com:9001/';
 
@@ -176,9 +185,12 @@ window.addEventListener("load", function () {
       ],
     },
   ];
+  console.log(connection.iceServers[0]);
 
   connection.videosContainer = document.getElementById("videos-container");
+  console.log(connection.videosContainer.id + " found");
   connection.onstream = function (event) {
+    console.log("onstream " + event.streamid);
     var existing = document.getElementById(event.streamid);
     if (existing && existing.parentNode) {
       existing.parentNode.removeChild(existing);
@@ -218,6 +230,7 @@ window.addEventListener("load", function () {
     });
 
     connection.videosContainer.appendChild(mediaElement);
+    console.log("mediaElement");
 
     setTimeout(function () {
       mediaElement.media.play();
