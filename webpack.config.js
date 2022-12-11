@@ -1,4 +1,9 @@
 const path = require("path");
+var webpack = require("webpack");
+// Webpack-dev-server is great for client side development
+// but it will not deploy Express api's or middleware.
+// So in development I recommend running two separate servers:
+// One for the client and one for your server side api's.
 
 module.exports = {
   watch: true,
@@ -24,7 +29,11 @@ module.exports = {
     filename: "[name].js",
     publicPath: "/",
   },
-
+  // plugins: [
+  //   new webpack.HotModuleReplacementPlugin({
+  //     multiStep: true,
+  //   }),
+  // ],
   resolve: {
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
 

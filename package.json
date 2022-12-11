@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "webpack --mode development --config webpack.config.js",
     "build": "webpack --mode production --config webpack.config.production.js",
-    "start": "webpack-dev-server --config webpack.config.js"
+    "dev-client": "webpack-dev-server --config webpack.config.js",
+    "dev-server": "node server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
@@ -16,14 +18,15 @@
     "webrtc-adapter": "^8.2.0"
   },
   "devDependencies": {
-    "webpack": "latest",
-    "webpack-cli": "latest",
-    "webpack-node-externals": "^3.0.0",
-    "webpack-dev-server": "latest",
     "dotenv-webpack": "latest",
     "mini-css-extract-plugin": "^0.9.0",
-    "sass-loader": "^8.0.2",
     "node-sass": "^4.13.0",
-    "sass": "^1.26.2"
+    "sass": "^1.26.2",
+    "sass-loader": "^8.0.2",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest",
+    "webpack-hot-middleware": "^2.25.3",
+    "webpack-node-externals": "^3.0.0"
   }
 }

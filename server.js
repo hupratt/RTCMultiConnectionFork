@@ -1,21 +1,22 @@
-import express from "./node_modules/express";
-import RTCMultiConnectionServer from "./node_modules/rtcmulticonnection-server";
-import dotenv from "./node_modules/dotenv";
-import * as fs from "fs";
-const ioServer = require("socket.io");
+require("dotenv").config();
+const express = require("express");
+const path = require("path");
 
-dotenv.config();
-
-const app = express();
+const fs = require("fs");
+const app = require("express")();
 const port = process.env.port || 8095;
+const RTCMultiConnectionServer = require("rtcmulticonnection-server");
 app.use(express.static("public"));
 app.use("node_modules", express.static("node_modules"));
 
+const BASH_COLORS_HELPER = RTCMultiConnectionServer.BASH_COLORS_HELPER;
 const getValuesFromConfigJson =
   RTCMultiConnectionServer.getValuesFromConfigJson;
+const getBashParameters = RTCMultiConnectionServer.getBashParameters;
+const resolveURL = RTCMultiConnectionServer.resolveURL;
 
 const jsonPath = {
-  config: ".env",
+  config: "config.json",
   logs: "logs.json",
 };
 
@@ -25,26 +26,26 @@ var options = {
 };
 
 var config = getValuesFromConfigJson(jsonPath);
+config = getBashParameters(config, BASH_COLORS_HELPER);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/live/index.html");
 });
 
-// const http = process.env.http;
-httpServer = require("http").createServer(options, app);
-RTCMultiConnectionServer.beforeHttpListen(httpServer, config);
+http = require(process.env.http).createServer(options, app);
+RTCMultiConnectionServer.beforeHttpListen(http, config);
 
-httpServer = httpServer.listen(port, process.env.IP || "0.0.0.0", () => {
+http.listen(port, () => {
   console.log(`Socket.IO server running at http://localhost:${port}/`);
-  RTCMultiConnectionServer.afterHttpListen(httpServer, config);
+  RTCMultiConnectionServer.afterHttpListen(http, config);
 });
+const io = require("socket.io")(http);
 
-ioServer(httpServer).on("connection", (socket) => {
-  // socket.on("chat message", (msg) => {
-  //   io.emit("chat message", msg);
-  // });
+io.on("connection", (socket) => {
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg);
+  });
   RTCMultiConnectionServer.addSocket(socket, config);
-  console.log("server started on socket " + socket);
 
   // ----------------------
   // below code is optional
