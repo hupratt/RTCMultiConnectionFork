@@ -2,3 +2,6 @@ node_modules/
 config.json
 package-lock.json
 .env
+main.js
+editor.js
+runtime.js
