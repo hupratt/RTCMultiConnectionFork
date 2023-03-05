@@ -1,7 +1,8 @@
+# RTCMultiConnectionFork
+
 ![Banner](https://github.com/hupratt/RTCMultiConnectionFork/blob/master/WebRTC.jpg?raw=true)
 
-# RTCMultiConnectionFork
-https://github.com/muaz-khan/RTCMultiConnection
+Fork of: https://github.com/muaz-khan/RTCMultiConnection
 
 ## RTCMultiConnectionFork is an express.js WebRTC app
 
