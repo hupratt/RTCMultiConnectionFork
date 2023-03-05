@@ -5,3 +5,4 @@ package-lock.json
 main.js
 editor.js
 runtime.js
+*.service

@@ -181,6 +181,7 @@ function getHTMLMediaElement(mediaElement, config) {
                 exitFullScreen();
             } else {
                 zoom.className = zoom.className.replace('zoom-in', 'zoom-out selected');
+                mediaElementContainer.style.rotate = "90deg";
                 launchFullscreen(mediaElementContainer);
             }
         };
