@@ -1,4 +1,4 @@
-![Banner](https://github.com/hupratt/RTCMultiConnectionFork/blob/main/WebRTC.jpg)
+![Banner](https://github.com/hupratt/RTCMultiConnectionFork/blob/master/WebRTC.jpg?raw=true)
 
 # RTCMultiConnectionFork
 https://github.com/muaz-khan/RTCMultiConnection
@@ -11,4 +11,4 @@ https://github.com/muaz-khan/RTCMultiConnection
 
 
 ## Preview
-![ui-demo](https://github.com/hupratt/RTCMultiConnectionFork/blob/main/webrtc-2-faster.gif?raw=true)
+![ui-demo](https://github.com/hupratt/RTCMultiConnectionFork/blob/master/webrtc-2-faster.gif?raw=true)
