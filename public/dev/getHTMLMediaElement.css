@@ -7,7 +7,7 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
 
 :fullscreen{
     overflow: auto;
-    touch-action: pinch-zoom;
+    touch-action: auto;
 }
 .media-container, .media-container * {
     -moz-transition: all .5s ease-in-out;
