@@ -23,7 +23,6 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
     vertical-align: top;
     background: white;
     overflow: auto;
-    touch-action: pinch-zoom;
 }
 
 .media-box {
