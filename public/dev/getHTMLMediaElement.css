@@ -9,6 +9,8 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
     overflow: auto;
     touch-action: auto;
 }
+
+
 .media-container, .media-container * {
     -moz-transition: all .5s ease-in-out;
     -ms-transition: all .5s ease-in-out;
