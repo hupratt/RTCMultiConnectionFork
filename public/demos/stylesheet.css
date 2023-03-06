@@ -237,7 +237,7 @@ input[disabled] {
     z-index: -1 !important;
     width: 0 !important;
     height: 0 !important;
-    overflow: hidden !important;
+    /* overflow: hidden !important; */
     border: 0 !important;
     box-shadow: none !important;
   }
