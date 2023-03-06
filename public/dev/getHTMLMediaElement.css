@@ -5,7 +5,7 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
 */
 
 
-:fullscreen{
+*{
     overflow: auto;
     touch-action: auto;
 }
