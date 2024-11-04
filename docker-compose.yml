@@ -1,0 +1,24 @@
+networks:
+  webrtc-network:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.190.7.0/26
+    driver_opts:
+      com.docker.network.bridge.name: br_webrtc
+
+services:
+  webrtc-backend:
+    build: .
+    restart: always
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./:/webrtc-backend
+      - ./node_modules:/webrtc-backend/node_modules
+    env_file: 
+      - .env
+    networks:
+      - webrtc-network
+
