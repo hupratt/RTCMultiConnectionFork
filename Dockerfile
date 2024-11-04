@@ -1,4 +1,4 @@
-FROM node:19-bullseye
+FROM node:10
 # COPY package.json package-lock.json /app
 WORKDIR /webrtc-backend
 # COPY package.json .
